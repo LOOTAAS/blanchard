@@ -119,6 +119,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
         },
         spaceBetween: 40
       },
+
+      1920: {
+        slidesPerView: 3,
+        grid: {
+          rows: 1
+        },
+        spaceBetween: 50
+      },
     },
 
     a11y: false,
