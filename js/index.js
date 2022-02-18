@@ -514,6 +514,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const modalOverlay = document.querySelector('.galerey__modal-overlay');
   const modal = document.querySelectorAll('.galerey__modal');
   const closeBtns = document.querySelectorAll('.galerey__modal-close-icon')
+  const body = document.querySelector('.body')
 
   btns.forEach((el) => {
     el.addEventListener('click', (e) => {
@@ -526,10 +527,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         el.classList.remove('galerey__modal--visable')
       });
 
-      // var modals = document.getElementById('your-modal-id-here');
-
       document.querySelector(`[data-target="${path}"]`).classList.add('galerey__modal--visable');
       modalOverlay.classList.add('galerey__modal-overlay--visable');
+
+      body.classList.add('modal-open');
+      // document.querySelector('.body').classList.add('modal-open');
     });
   });
 
@@ -541,6 +543,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       modal.forEach((el) => {
         el.classList.remove('galerey__modal--visable')
       });
+      body.classList.remove('modal-open');
     }
 
   });
@@ -551,6 +554,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         el.classList.remove('galerey__modal--visable')
       });
       modalOverlay.classList.remove('galerey__modal-overlay--visable');
+      body.classList.remove('modal-open');
     });
 
   })

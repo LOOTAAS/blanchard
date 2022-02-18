@@ -4095,14 +4095,19 @@ img {
 
 .header__visabl-search:hover,
 .header__visabl-search:focus,
+.header__visabl-search:focus-visible,
 .header__burger-open-icon:hover,
 .header__burger-open-icon:focus,
+.header__burger-open-icon:focus-visible,
 .header__burger-close-icon:hover,
 .header__burger-close-icon:focus,
+.header__burger-close-icon:focus-visible,
 .header__nav-link:hover,
 .header__nav-link:focus,
+.header__nav-link:focus-visible,
 .galerey__modal-close-icon:hover,
-.galerey__modal-close-icon:focus {
+.galerey__modal-close-icon:focus,
+.galerey__modal-close-icon:focus-visible {
   -webkit-filter: invert(57%) sepia(30%) saturate(1797%) hue-rotate(223deg) brightness(142%) contrast(100%);
   filter: invert(57%) sepia(30%) saturate(1797%) hue-rotate(223deg) brightness(142%) contrast(100%);
   -webkit-transition: -webkit-filter .3s ease-in-out;
