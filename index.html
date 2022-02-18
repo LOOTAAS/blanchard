@@ -26,7 +26,7 @@
   <link href="./css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="body">
 
   <header class="header">
     <div class="header__up">
@@ -1404,7 +1404,8 @@
             <form class="contact__form" id="form" action="#" autocomplete="off">
               <div class="contact__form-group">
                 <!-- <label class="form__label" for="name">Как вас зовут?</label> -->
-                <input class="contact__form-input" id="name" name="Имя" type="text" placeholder="Имя*"  autocomplete="off">
+                <input class="contact__form-input" id="name" name="Имя" type="text" placeholder="Имя*"
+                  autocomplete="off">
               </div>
               <div class="contact__form-group">
                 <!-- <label class="form__label" for="tell">Укажите ваш телефон</label> -->
@@ -1511,6 +1512,10 @@
         <button class="galerey__modal-close-icon"></button>
         <picture class="galerey__modal-img-block">
 
+          <source srcset="./img/galerey/modal-window/2-320.jpg" media="(max-width: 663px)">
+          <source srcset="./img/galerey/modal-window/2-768.jpg" media="(max-width: 768px)">
+          <source srcset="./img/galerey/modal-window/2-1024.jpg" media="(max-width: 1131px)">
+
           <img class="galerey__modal-img" src="./img/galerey/modal-window/2.jpg" alt>
         </picture>
         <div class="galerey__modal-text-box">
@@ -1526,6 +1531,10 @@
       <div class="galerey__modal" data-target="three-slide">
         <button class="galerey__modal-close-icon"></button>
         <picture class="galerey__modal-img-block">
+
+          <source srcset="./img/galerey/modal-window/3-320.jpg" media="(max-width: 663px)">
+          <source srcset="./img/galerey/modal-window/3-768.jpg" media="(max-width: 768px)">
+          <source srcset="./img/galerey/modal-window/3-1024.jpg" media="(max-width: 1131px)">
 
           <img class="galerey__modal-img" src="./img/galerey/modal-window/3.jpg" alt>
         </picture>
@@ -1543,6 +1552,10 @@
         <button class="galerey__modal-close-icon"></button>
         <picture class="galerey__modal-img-block">
 
+          <source srcset="./img/galerey/modal-window/4-320.jpg" media="(max-width: 663px)">
+          <source srcset="./img/galerey/modal-window/4-768.jpg" media="(max-width: 768px)">
+          <source srcset="./img/galerey/modal-window/4-1024.jpg" media="(max-width: 1131px)">
+
           <img class="galerey__modal-img" src="./img/galerey/modal-window/4.jpg" alt>
         </picture>
         <div class="galerey__modal-text-box">
@@ -1558,6 +1571,10 @@
       <div class="galerey__modal" data-target="five-slide">
         <button class="galerey__modal-close-icon"></button>
         <picture class="galerey__modal-img-block">
+
+          <source srcset="./img/galerey/modal-window/5-320.jpg" media="(max-width: 663px)">
+          <source srcset="./img/galerey/modal-window/5-768.jpg" media="(max-width: 768px)">
+          <source srcset="./img/galerey/modal-window/5-1024.jpg" media="(max-width: 1131px)">
 
           <img class="galerey__modal-img" src="./img/galerey/modal-window/5.jpg" alt>
         </picture>
@@ -1576,7 +1593,7 @@
 
   <script src="./js/choices.min.js"></script>
 
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript">
+  <script src="https://api-maps.yandex.ru/2.1/?&lang=ru_RU">
   </script>
 
   <script src="./js/inputmask.js"></script>
