@@ -389,7 +389,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       {
         rule: 'required',
         errorMessage: 'Как вас зовут',
-    },
+      },
     ])
 
     .addField('#phone', [
@@ -499,36 +499,72 @@ document.addEventListener("DOMContentLoaded", function (event) {
     document.querySelector('.header__search-form-menu').classList.remove('header__search-form-menu-is-active')
     document.querySelector('.header__search-block-menu').classList.remove('header__search-block-menu-is-active')
     document.querySelector('.header__visabl-search-non-display-in-deskrop').classList.remove('header__visabl-search-non-display-in-deskrop-disable')
+    document.querySelector('.header__link-logo').classList.remove('header__link-logo-disabled')
+    document.querySelector('.header__burger').classList.remove('header__burger-disabled')
   })
 
 
-  if (document.documentElement.clientWidth <= 1023 && document.documentElement.clientWidth > 440) {
+  // поиск __________________________________________
 
-    document.querySelector('.header__visabl-search-menu-open').addEventListener('click', function () {
-      document.querySelector('.header__visabl-search-menu-open').classList.add('header__visabl-search-menu-is-disable')
-      document.querySelector('.header__visabl-search-menu-search').classList.remove('header__visabl-search-menu-is-disable')
-      document.querySelector('.header__visabl-search-menu-close').classList.remove('header__visabl-search-menu-is-disable')
-      document.querySelector('.header__search-form-menu').classList.add('header__search-form-menu-is-active')
-      document.querySelector('.header__burger').classList.add('header__burger-disabled')
-      document.querySelector('.header__link-logo').classList.add('header__link-logo-disabled')
-    })
-    document.querySelector('.header__visabl-search-menu-close').addEventListener('click', function () {
-      document.querySelector('.header__visabl-search-menu-open').classList.remove('header__visabl-search-menu-is-disable')
-      document.querySelector('.header__visabl-search-menu-search').classList.add('header__visabl-search-menu-is-disable')
-      document.querySelector('.header__visabl-search-menu-close').classList.add('header__visabl-search-menu-is-disable')
-      document.querySelector('.header__search-form-menu').classList.remove('header__search-form-menu-is-active')
+
+  function openSearch() {
+    document.querySelector('.header__visabl-search-menu-open').classList.add('header__visabl-search-menu-is-disable')
+    document.querySelector('.header__visabl-search-menu-search').classList.remove('header__visabl-search-menu-is-disable')
+    document.querySelector('.header__visabl-search-menu-close').classList.remove('header__visabl-search-menu-is-disable')
+    document.querySelector('.header__search-form-menu').classList.add('header__search-form-menu-is-active')
+    document.querySelector('.header__burger').classList.add('header__burger-disabled')
+    document.querySelector('.header__link-logo').classList.add('header__link-logo-disabled')
+
+  }
+
+  function closeSearch() {
+    document.querySelector('.header__visabl-search-menu-open').classList.remove('header__visabl-search-menu-is-disable')
+    document.querySelector('.header__visabl-search-menu-search').classList.add('header__visabl-search-menu-is-disable')
+    document.querySelector('.header__visabl-search-menu-close').classList.add('header__visabl-search-menu-is-disable')
+    document.querySelector('.header__search-form-menu').classList.remove('header__search-form-menu-is-active')
+    document.querySelector('.header__burger').classList.remove('header__burger-disabled')
+    document.querySelector('.header__link-logo').classList.remove('header__link-logo-disabled')
+  }
+
+
+  window.addEventListener('resize', function () {
+
+
+
+    let closeItem = document.querySelector('[aria-label="Кнока закрыть поиск"]')
+
+    if (document.documentElement.clientWidth <= 1023 && document.documentElement.clientWidth > 440) {
+      // console.log(closeItem.classList.contains('header__visabl-search-menu-is-disable'))
+
+      if (!closeItem.classList.contains('header__visabl-search-menu-is-disable')) {
+
+        document.querySelector('.header__burger').classList.add('header__burger-disabled')
+        document.querySelector('.header__link-logo').classList.add('header__link-logo-disabled')
+
+      }
+
+      document.querySelector('.header__visabl-search-menu-open').addEventListener('click', openSearch)
+      document.querySelector('.header__visabl-search-menu-close').addEventListener('click', closeSearch);
+    }
+    else {
+      document.querySelector('.header__visabl-search-menu-open').removeEventListener('click', openSearch)
+      document.querySelector('.header__visabl-search-menu-close').removeEventListener('click', closeSearch);
       document.querySelector('.header__burger').classList.remove('header__burger-disabled')
       document.querySelector('.header__link-logo').classList.remove('header__link-logo-disabled')
-    })
-  };
+    }
+  })
 
+
+
+
+  // ___________________________________________
 
   // модальное окно
 
   const btns = document.querySelectorAll('.galerey__slide');
-  const modalOverlay = document.querySelector('.galerey__modal-overlay');
-  const modal = document.querySelectorAll('.galerey__modal');
-  const closeBtns = document.querySelectorAll('.galerey__modal-close-icon')
+  const modalOverlay = document.querySelector('.galerey-modal__modal-overlay');
+  const modal = document.querySelectorAll('.galerey-modal__modal');
+  const closeBtns = document.querySelectorAll('.galerey-modal__modal-close-icon')
   const body = document.querySelector('.body')
 
   btns.forEach((el) => {
@@ -539,11 +575,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
       let path = e.currentTarget.getAttribute('data-path');
 
       modal.forEach((el) => {
-        el.classList.remove('galerey__modal--visable')
+        el.classList.remove('galerey-modal__modal--visable')
       });
 
-      document.querySelector(`[data-target="${path}"]`).classList.add('galerey__modal--visable');
-      modalOverlay.classList.add('galerey__modal-overlay--visable');
+      document.querySelector(`[data-target="${path}"]`).classList.add('galerey-modal__modal--visable');
+      modalOverlay.classList.add('galerey-modal__modal-overlay--visable');
 
       body.classList.add('modal-open');
       // document.querySelector('.body').classList.add('modal-open');
@@ -554,9 +590,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     if (e.target == modalOverlay) {
-      modalOverlay.classList.remove('galerey__modal-overlay--visable');
+      modalOverlay.classList.remove('galerey-modal__modal-overlay--visable');
       modal.forEach((el) => {
-        el.classList.remove('galerey__modal--visable')
+        el.classList.remove('galerey-modal__modal--visable')
       });
       body.classList.remove('modal-open');
     }
@@ -566,9 +602,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
   closeBtns.forEach((closeBtn) => {
     closeBtn.addEventListener('click', (e) => {
       modal.forEach((el) => {
-        el.classList.remove('galerey__modal--visable')
+        el.classList.remove('galerey-modal__modal--visable')
       });
-      modalOverlay.classList.remove('galerey__modal-overlay--visable');
+      modalOverlay.classList.remove('galerey-modal__modal-overlay--visable');
       body.classList.remove('modal-open');
     });
 
