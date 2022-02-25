@@ -526,6 +526,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
     document.querySelector('.header__link-logo').classList.remove('header__link-logo-disabled')
   }
 
+  let closeItem = document.querySelector('[aria-label="Кнока закрыть поиск"]')
+
+  if (document.documentElement.clientWidth <= 1023 && document.documentElement.clientWidth > 440) {
+    // console.log(closeItem.classList.contains('header__visabl-search-menu-is-disable'))
+
+    if (!closeItem.classList.contains('header__visabl-search-menu-is-disable')) {
+
+      document.querySelector('.header__burger').classList.add('header__burger-disabled')
+      document.querySelector('.header__link-logo').classList.add('header__link-logo-disabled')
+
+    }
+
+    document.querySelector('.header__visabl-search-menu-open').addEventListener('click', openSearch)
+    document.querySelector('.header__visabl-search-menu-close').addEventListener('click', closeSearch);
+  }
+  else {
+    document.querySelector('.header__visabl-search-menu-open').removeEventListener('click', openSearch)
+    document.querySelector('.header__visabl-search-menu-close').removeEventListener('click', closeSearch);
+    document.querySelector('.header__burger').classList.remove('header__burger-disabled')
+    document.querySelector('.header__link-logo').classList.remove('header__link-logo-disabled')
+  }
 
   window.addEventListener('resize', function () {
 
