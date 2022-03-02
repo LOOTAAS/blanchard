@@ -710,14 +710,18 @@ img {
 .header__search-input {
   width: 220px;
   margin-left: 35px;
+  padding-right: 40px;
   background: none;
+  background-color: transparent;
   border: none;
+  border-top-color: red;
   border-bottom: 1px solid var(--white-opacity-85);
+  border-radius: 0%;
   font-weight: normal;
   font-size: 18px;
   line-height: 25px;
   color: var(--white-opacity-85);
-  padding-right: 40px;
+  -webkit-appearance: none;
   -webkit-transition: border-bottom .3s ease-in-out;
   transition: border-bottom .3s ease-in-out;
 
@@ -1338,17 +1342,20 @@ img {
 }
 
 .galerey-modal__modal-close-icon {
+  padding: 0;
+  margin: 0;
   position: absolute;
   top: 20px;
   right: 20px;
-  display: block;
+  display: inline;
   width: 16px;
+  max-width: 16px;
   height: 16px;
   border: none;
   background-color: initial;
   background-image: url("../img/galerey/modal-window/close_modal.svg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   cursor: pointer;
   -webkit-transition: -webkit-filter .3s ease;
   transition: -webkit-filter .3s ease;
@@ -2377,6 +2384,7 @@ img {
 }
 
 .contact__form-group {
+  position: relative;
   margin-right: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2385,7 +2393,6 @@ img {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-  position: relative;
 }
 
 .form__label {
@@ -3526,11 +3533,9 @@ img {
 
   .galerey-modal__modal-close-icon {
     background-color: initial;
-  }
-
-  .galerey-modal__modal-close-icon {
     top: 9px;
     right: 10px;
+    /* background-size: cover; */
   }
 
   .catalog__painter-date-content-box-border {
@@ -3754,6 +3759,7 @@ img {
     top: -10px;
     left: auto;
     right: -66px;
+    background-size: contain;
   }
 
   .hero__inner {
