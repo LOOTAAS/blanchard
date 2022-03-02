@@ -475,6 +475,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
     document.querySelector('.header__burger-open').classList.add('header__burger-is-active')
   })
 
+
+  // убераем бургер меню при клике на ссылку
+  document.querySelectorAll('.header__nav-link').forEach(function (closeBurger) {
+    closeBurger.addEventListener('click', function (event) {
+      document.querySelector('.header__menu').classList.remove('header__menu-is-active')
+      document.querySelector('.header__burger-close').classList.remove('header__burger-is-active')
+      document.querySelector('.header__burger-open').classList.add('header__burger-is-active')
+
+    })
+  })
+
+
   // поиск в мобил
   document.querySelector('.header__visabl-search-menu-open').addEventListener('click', function () {
     document.querySelector('.header__visabl-search-menu-open').classList.add('header__visabl-search-menu-is-disable')
@@ -630,6 +642,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 
   })
+
+
+  $(document).ready(function () {
+    $(".header__nav-list, .header__menu-nav-list").on("click", "a", function (event) {
+      //отменяем стандартную обработку нажатия по ссылке
+      event.preventDefault();
+
+      //забираем идентификатор бока с атрибута href
+      var id = $(this).attr('href'),
+
+        //узнаем высоту от начала страницы до блока на который ссылается якорь
+        top = $(id).offset().top;
+
+      //анимируем переход на расстояние - top за 1500 мс
+      $('body,html').animate({ scrollTop: top }, 500);
+    });
+  });
 
 })
 
