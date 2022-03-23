@@ -2959,6 +2959,10 @@ img {
     padding-bottom: 80px;
   }
 
+  .catalog__heading {
+    margin-bottom: 18px;
+  }
+
   .catalog__painter-image {
     margin-bottom: 26px;
   }
@@ -3637,6 +3641,10 @@ img {
     justify-content: space-between;
   }
 
+  .header__search-input {
+    width: 84%;
+  }
+
   .hero__inner-h1 {
     font-weight: bold;
     font-size: 32px;
@@ -4093,6 +4101,7 @@ img {
   .contact__map {
     border: none;
     min-height: 320px;
+    max-height: 320px;
   }
 
 }
